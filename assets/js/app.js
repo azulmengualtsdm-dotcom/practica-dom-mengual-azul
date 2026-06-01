@@ -53,3 +53,8 @@ rowPersonajes.addEventListener('click', (e)=> {
          }
         }
        });
+       
+       const inputFiltro=document.querySelector ("#filtro")
+inputFiltro.addEventListener('sumbit', (e)=> {
+    
+  })
