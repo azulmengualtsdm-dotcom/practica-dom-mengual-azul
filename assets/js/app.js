@@ -25,3 +25,21 @@ const personajes = [
     imagen: "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/5-abraxas.jpg"
   }
 ];
+let nuevoArreglo=[...personajes]
+
+const formulario=document.querySelector("#formulario")
+formulario.addEventListener("submit", (e) => {
+  e.preventDefault()
+  const valorNombre=formulario.nombre.value
+  const valorImagen=formulario.imagen.value
+
+  const nuevoPersonaje={
+    id:personajes.length+1,
+    nombre:valorNombre,
+    imagen:valorImagen
+  }
+  personajes.push(nuevoPersonaje)
+  mostrarPersonajes(personajes)
+
+})
+
