@@ -29,18 +29,27 @@ let nuevoArreglo=[...personajes];
 
 const formulario=document.querySelector("#formulario");
 formulario.addEventListener("submit", (e) => {
-  e.preventDefault()
+  e.preventDefault();
   const valorNombre=document.querySelector("#nombre").value;
   const valorImagen=document.querySelector("#imagen").value;
 
   const nuevoPersonaje={
-    id:personajes.length+1,
+    id:personajes.length>0? personajes[personaje.length-1].id +1:1,
     nombre:valorNombre,
     imagen:valorImagen
-  }
-  personajes.push(nuevoPersonaje)
-  mostrarPersonajes(personajes)
+  };
+  personajes.push(nuevoPersonaje);
+  mostrarPersonajes(personajes);
 
 });
 
+const rowPersonajes=document.querySelector('#personajes');
+rowPersonajes.addEventListener("click", (e)=>{
+  if (e.target.classlist.constains("btn-eliminar")){
+    const card=e.target.closest(".card");
+    if (card){
+      card.remove()
+    }
+  }
+});
 
