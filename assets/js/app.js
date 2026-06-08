@@ -25,13 +25,13 @@ const personajes = [
     imagen: "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/5-abraxas.jpg"
   }
 ];
-let nuevoArreglo=[...personajes]
+let nuevoArreglo=[...personajes];
 
-const formulario=document.querySelector("#formulario")
+const formulario=document.querySelector("#formulario");
 formulario.addEventListener("submit", (e) => {
   e.preventDefault()
-  const valorNombre=formulario.nombre.value
-  const valorImagen=formulario.imagen.value
+  const valorNombre=document.querySelector("#nombre").value;
+  const valorImagen=document.querySelector("#imagen").value;
 
   const nuevoPersonaje={
     id:personajes.length+1,
@@ -41,5 +41,6 @@ formulario.addEventListener("submit", (e) => {
   personajes.push(nuevoPersonaje)
   mostrarPersonajes(personajes)
 
-})
+});
+
 
