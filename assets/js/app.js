@@ -26,10 +26,11 @@ const personajes = [
   }
 ];
 
-const rowPersonajes=document.querySelector('#personajes');
-const mostrarPersonajes=()=>{
-personajes.forEach((personaje)=> {
-    rowPersonajes.innerHTML+=`
+const verPersonajes=document.querySelector("#personajes");
+const mostrarPersonajes=(lista)=> {
+  verPersonajes.innerHTML="";
+    lista.forEach(personaje => {
+    verPersonajes.innerHTML+=`
     <div class="col-3 m-3">
           <div class="card" style="width: 18rem">
             <img src="${personaje.imagen}" class="card-img-top" alt="${personaje.nombre}" />
@@ -44,13 +45,13 @@ personajes.forEach((personaje)=> {
 }
 )
 }
-mostrarPersonajes();
+mostrarPersonajes(personajes);
     
 const formularioFiltro=document.querySelector ("#formulario-filtro");
 const inputFiltro=document.querySelector("#filtro");
 formularioFiltro.addEventListener("submit", (e)=>{
   e.preventDefault();
-  const textoBuscar=inputFiltro.value.toLowercase().trim();
+  const textoBuscar=inputFiltro.value.toLowerCase().trim();
   const personajesFiltrados=personajes.filter(personaje =>
     personaje.nombre.toLowerCase().includes(textoBuscar)
   );
