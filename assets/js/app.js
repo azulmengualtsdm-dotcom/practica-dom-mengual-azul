@@ -34,7 +34,7 @@ formulario.addEventListener("submit", (e) => {
   const valorImagen=document.querySelector("#imagen").value;
 
   const nuevoPersonaje={
-    id:personajes.length>0? personajes[personaje.length-1].id +1:1,
+    id:personajes.length>0? personajes[personajes.length-1].id +1:1,
     nombre:valorNombre,
     imagen:valorImagen
   };
@@ -45,7 +45,7 @@ formulario.addEventListener("submit", (e) => {
 
 const rowPersonajes=document.querySelector('#personajes');
 rowPersonajes.addEventListener("click", (e)=>{
-  if (e.target.classlist.constains("btn-eliminar")){
+  if (e.target.classList.contains("btn-eliminar")){
     const card=e.target.closest(".card");
     if (card){
       card.remove()
