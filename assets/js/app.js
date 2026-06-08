@@ -35,7 +35,8 @@ personajes.forEach((personaje)=> {
             <img src="${personaje.imagen}" class="card-img-top" alt="${personaje.nombre}" />
             <div class="card-body">
               <h5 class="card-title">${personaje.nombre}</h5>
-              <a href="#" class="btn btn-eliminar bg-warning">Eliminar</a>
+            <a href="#" class="btn btn-primary">Ver mas</a>
+            <button class="btn btn-eliminar bg-warning" data-id="${personaje.id}">Eliminar</button>
             </div>
           </div>
         </div>
@@ -44,17 +45,14 @@ personajes.forEach((personaje)=> {
 )
 }
 mostrarPersonajes();
-
-rowPersonajes.addEventListener('click', (e)=> {
-    if (e.target.classList.contains('btn-eliminar')) {
-         const card=e.target.closest('.card');
-         if (card){
-            card.remove()
-         }
-        }
-       });
-       
-       const inputFiltro=document.querySelector ("#filtro")
-inputFiltro.addEventListener('sumbit', (e)=> {
     
-  })
+const formularioFiltro=document.querySelector ("#formulario-filtro");
+const inputFiltro=document.querySelector("#filtro");
+formularioFiltro.addEventListener("submit", (e)=>{
+  e.preventDefault();
+  const textoBuscar=inputFiltro.value.toLowercase().trim();
+  const personajesFiltrados=personajes.filter(personaje =>
+    personaje.nombre.toLowerCase().includes(textoBuscar)
+  );
+  mostrarPersonajes(personajesFiltrados);
+});
